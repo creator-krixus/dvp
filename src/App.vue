@@ -1,6 +1,6 @@
 <template>
   <div id="app">
-    <Header />
+    <Header class="h"/>
   </div>
 </template>
 
@@ -12,6 +12,9 @@ export default {
 </script>
 
 <style lang="scss">
+.h{
+  z-index: 100;
+}
 #app {
   font-family: Avenir, Helvetica, Arial, sans-serif;
   -webkit-font-smoothing: antialiased;

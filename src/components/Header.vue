@@ -20,7 +20,7 @@ export default {
 }
 </script>
 <style lang="scss">
-.header{
+.header{ 
     display: flex;
     justify-content: space-between;
     padding: 15px 20px;
