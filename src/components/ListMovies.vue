@@ -51,6 +51,8 @@ export default {
     flex-wrap: wrap;
     justify-content: center;
     gap: 15px;
+    padding: 100px 50px;
+    background: rgb(243, 241, 241);
     &__content{
         width: 300px;
     }
