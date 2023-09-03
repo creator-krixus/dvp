@@ -16,7 +16,6 @@ export default {
         async fetchMovieDetails({ commit }, movieId) {
             try {
                 const response = await axios.get(`https://api.themoviedb.org/3/movie/${movieId}?api_key=${process.env.VUE_APP_API_KEY}`);
-                
                 const movieDetails = response.data;
                 commit('SET_MOVIE_DETAILS', movieDetails);
         } catch (error) {
@@ -26,7 +25,7 @@ export default {
     },
 
     getters : {
-    getMovieDetails: (state) => state.movieDetails,
+        getMovieDetails: (state) => state.movieDetails,
     },
 
 }

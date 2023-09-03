@@ -27,9 +27,8 @@ export default {
                 console.error('Error al obtener la información del elemento', error);
             });
         },
-  },
+    },
     mounted() {
-        // Llama al método para obtener la información del elemento
        this.fetchItemInfo();
     },
 };
@@ -38,9 +37,13 @@ export default {
 <style lang="scss">
 .genre{
     display: flex;
-    gap: 3px;
+    gap: 5px;
     padding: 0 15px;
-    font-size: 14px;
+    font-size: 15px;
+    font-weight: 400;
+    white-space: nowrap; 
+    overflow: hidden;    
+    text-overflow: ellipsis;
 }
 
 </style>

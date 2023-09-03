@@ -7,21 +7,31 @@
             <div class="card__votes--one">💖{{ item.vote_average }}</div>
             <div class="card__votes--two"></div>
         </div>
+        <Modal :showModal="showModal" :modalItem="selectedItem" @close-modal="handleCardClick" />
     </div>
 </template>
 
 <script>
 import Genres from '../components/Generos.vue'
+import Modal from '../components/Modal.vue';
 
 export default { 
 
   props: ['item'],
     components: {
-        Genres
+        Genres, Modal
     },
+    data() {
+    return {
+      showModal: false,
+      selectedItem: {},
+    };
+  },  
   methods: {
     async handleClick() {
       this.$emit('card-click', this.item);
+      this.selectedItem = this.item; // Establecer el ítem seleccionado para mostrar en el modal
+      this.showModal = !this.showModal; // Mostrar el modal
     },
   },
 };
@@ -61,7 +71,7 @@ export default {
             background: rgb(184, 184, 10);
             width: 40px;
             height: 40px;
-            margin-top: 8px;
+            margin-top: 7px;
             clip-path: polygon(100% 0%, 0% 100%, 100% 100%);
         }
     }
