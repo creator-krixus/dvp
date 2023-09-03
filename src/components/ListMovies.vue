@@ -1,9 +1,8 @@
 <template>
   <div class="listMovies">
     <div class="listMovies__content" v-for="movie in popularMovies" :key="movie.id">
-        <Card :item="movie" @card-click="handleCardClick"/>
+        <Card :item="movie"  />
     </div>
-
     <div class="listMovies__btns">
       <button class="listMovies__btns--items" @click="previousPage" :disabled="currentPage === 1">Prev</button>
       <span class="listMovies__btns">{{currentPage}}</span>
@@ -18,10 +17,7 @@ import Card from '../components/Card.vue'
 
 export default {
   name: 'ListMovies',
-  components: {
-        Card
-    },
-
+  components: { Card },  
   computed: {
     ...mapState({
       popularMovies: state => state.movies.popularMovies,
