@@ -13,8 +13,8 @@ export default {
 <style lang="scss">
 .cover{
     padding: 15px 20px;
-    height: 600px;
-    background-image: url('https://blogthinkbig.com/wp-content/uploads/sites/4/2015/12/the-martian.jpg?fit=4849%2C2425');
+    height: 500px;
+    background-image: url('https://m.media-amazon.com/images/M/MV5BMjA5MTgwNjcwMV5BMl5BanBnXkFtZTgwNDE0MDE5NTE@._V1_.jpg');
     background-size: cover;
     &__menu{
         &--item{

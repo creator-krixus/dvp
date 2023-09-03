@@ -1,13 +1,13 @@
 <template>
   <div class="listMovies">
     <div class="listMovies__content" v-for="movie in popularMovies" :key="movie.id">
-        <Card :item="movie" />
+        <Card :item="movie" @card-click="handleCardClick"/>
     </div>
 
     <div class="listMovies__btns">
-      <button @click="previousPage" :disabled="currentPage === 1">Página Anterior</button>
-      <span>Página {{ currentPage }}</span>
-      <button @click="nextPage" :disabled="currentPage === totalPages">Página Siguiente</button>
+      <button class="listMovies__btns--items" @click="previousPage" :disabled="currentPage === 1">Prev</button>
+      <span class="listMovies__btns">{{currentPage}}</span>
+      <button class="listMovies__btns--items" @click="nextPage" :disabled="currentPage === totalPages">Next</button>
     </div>
   </div>
 </template>
@@ -41,6 +41,9 @@ export default {
     async previousPage() {
       await this.$store.dispatch('movies/previousPage');
     },
+    handleCardClick(movie) {
+      console.log(movie);
+    },
   },
 };
 </script>
@@ -51,13 +54,22 @@ export default {
     flex-wrap: wrap;
     justify-content: center;
     gap: 15px;
-    padding: 100px 50px;
+    padding: 50px 100px;
     background: rgb(243, 241, 241);
     &__content{
         width: 300px;
     }
     &__btns{
       width: 100%;
+      &--items{
+        margin: 0 10px;
+        width: 45px;
+        height: 30px;
+        border-radius: 6px;
+        border: none;
+        outline: none;
+        cursor: pointer;
+      }
     }
 }
 </style>
