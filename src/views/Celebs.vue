@@ -1,7 +1,7 @@
 <template>
-  <div class="home">
+  <div class="celebs">
     <Cover />
-    <h1>User</h1>
+    <h1>Celebs</h1>
   </div>
 </template>
 
@@ -10,11 +10,14 @@
   import Cover from '@/components/Cover.vue'
 
   export default {
-    name: 'About',
+    name: 'Celebs',
     components: {
       Cover
     }
   }
 </script>
 <style lang="scss">
+.celebs{
+    background: rgb(243, 241, 241);
+}
 </style>
