@@ -1,7 +1,7 @@
 <template>
   <div class="listMovies">
     <div class="listMovies__content" v-for="movie in popularMovies" :key="movie.id">
-        <Card :item="movie"  />
+      <Card :item="movie" />
     </div>
     <div class="listMovies__btns">
       <button class="listMovies__btns--items" @click="previousPage" :disabled="currentPage === 1">Prev</button>
@@ -12,52 +12,59 @@
 </template>
 
 <script>
-import { mapState } from 'vuex';
-import Card from '../components/Card.vue'
+  import Card from '../components/Card.vue'
+  import {
+    mapState
+  } from 'vuex';
 
-export default {
-  name: 'ListMovies',
-  components: { Card },  
-  computed: {
-    ...mapState({
-      popularMovies: state => state.movies.popularMovies,
-      currentPage: state => state.movies.currentPage,
-      totalPages: state => state.movies.totalPages,
-    }),
-  },
+  export default {
+    name: 'ListMovies',
+    components: {
+      Card
+    },
+    computed: {
+      ...mapState({
+        popularMovies: state => state.movies.popularMovies,
+        currentPage: state => state.movies.currentPage,
+        totalPages: state => state.movies.totalPages,
+      }),
+    },
 
-  async mounted() {
-    await this.$store.dispatch('movies/fetchPopularMovies');
-  },
+    async mounted() {
+      await this.$store.dispatch('movies/fetchPopularMovies');
+    },
 
-  methods: {
-    async nextPage() {
-      await this.$store.dispatch('movies/nextPage');
+    methods: {
+      async nextPage() {
+        await this.$store.dispatch('movies/nextPage');
+      },
+      async previousPage() {
+        await this.$store.dispatch('movies/previousPage');
+      },
+      handleCardClick(movie) {
+        console.log(movie);
+      },
     },
-    async previousPage() {
-      await this.$store.dispatch('movies/previousPage');
-    },
-    handleCardClick(movie) {
-      console.log(movie);
-    },
-  },
-};
+  };
 </script>
 
 <style lang="scss">
-.listMovies{
+  .listMovies {
     display: flex;
     flex-wrap: wrap;
     justify-content: center;
     gap: 15px;
-    padding: 50px 100px;
+    padding: 20px 100px;
     background: rgb(243, 241, 241);
-    &__content{
-        width: 300px;
+
+    &__content {
+      width: 300px;
     }
-    &__btns{
+
+    &__btns {
       width: 100%;
-      &--items{
+
+      &--items {
         margin: 0 10px;
         width: 45px;
         height: 30px;
@@ -67,5 +74,5 @@ export default {
         cursor: pointer;
       }
     }
-}
+  }
 </style>
